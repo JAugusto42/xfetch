@@ -49,8 +49,7 @@ class Main:
                        manufacture,
                        desktop,
                        current_shell,
-                       model_name
-                       )
+                       model_name)
 
     @staticmethod
     def show_info(system,
@@ -64,16 +63,26 @@ class Main:
                   current_shell,
                   model_name):
         infos = """
-             {username}@{hostname}
-           -----------------------
-    OS          : {sys} {architecture}
-    Kernel      : {kernel}
-    Host        : {manufacture}
-    DE          : {desktop}
-    Packages    : {packages}
-    Shell       : {shell}
-    CPU         : {model}
-    """.format(username=user,
+                  ##                
+                 ####               {username}@{hostname}
+                ######          -----------------------------
+               ########         OS        : {sys} {architecture}
+              ##########        Kernel    : {kernel}
+             ############       Host      : {manufacture}
+            ##############      DE        : {desktop}
+           ################     Packages  : {packages}
+          ##################    Shell     : {shell}
+         ####################   CPU       : {model}
+        ######################
+       #########      #########
+      ##########      ##########
+     ###########      ###########
+    ##########          ##########
+   #######                  #######
+  ####                          ####
+ ###                              ###
+
+""".format(username=user,
                hostname=hostname,
                sys=system,
                architecture=architecture,
@@ -82,8 +91,7 @@ class Main:
                manufacture=manufacture,
                desktop=desktop,
                shell=current_shell,
-               model=model_name.strip()
-               )
+               model=model_name.strip())
 
         print(infos)
 
