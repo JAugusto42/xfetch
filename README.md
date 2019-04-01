@@ -1,5 +1,5 @@
 # xfetch
 A simple fetch for Arch Linux only...
 
-# Installing
+# Using 
 Just clone the repo and execute with python3 or just chmod +x and execute.
