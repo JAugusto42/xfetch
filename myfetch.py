@@ -40,28 +40,13 @@ class Main:
                         model_name = line.rstrip('\n').split(':')[1]
                         break
 
-        self.show_info(system,
-                       user,
-                       hostname,
-                       architecture,
-                       kernel,
-                       total_count,
-                       manufacture,
-                       desktop,
-                       current_shell,
-                       model_name)
+        self.show_info(
+            system, user, hostname, architecture, kernel, total_count,
+            manufacture, desktop, current_shell, model_name)
 
     @staticmethod
-    def show_info(system,
-                  user,
-                  hostname,
-                  architecture,
-                  kernel,
-                  total_count,
-                  manufacture,
-                  desktop,
-                  current_shell,
-                  model_name):
+    def show_info(system, user, hostname, architecture, kernel, total_count,
+                  manufacture, desktop, current_shell, model_name):
         infos = """
                   ##
                  ####              \033[1m{username}@{hostname}\033[0;0m
@@ -82,15 +67,10 @@ class Main:
   ####                          ####
  ###                              ###
 
-        """.format(username=user,
-                   hostname=hostname,
-                   sys=system,
-                   architecture=architecture,
-                   kernel=kernel,
-                   packages=total_count,
-                   manufacture=manufacture,
-                   desktop=desktop,
-                   shell=current_shell,
+        """.format(username=user, hostname=hostname, sys=system,
+                   architecture=architecture, kernel=kernel,
+                   packages=total_count, manufacture=manufacture,
+                   desktop=desktop, shell=current_shell,
                    model=model_name.strip())
 
         print(infos)
