@@ -64,7 +64,7 @@ class Main:
                   model_name):
         infos = """
                   ##
-                 ####              \033[31m{username}@{hostname}\033[0;0m
+                 ####              \033[1m{username}@{hostname}\033[0;0m
                 ######          -----------------------------
                ########         \033[94mOS\033[0m        : {sys} {architecture}
               ##########        \033[94mKernel\033[0m    : {kernel}
