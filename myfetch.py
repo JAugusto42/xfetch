@@ -17,11 +17,11 @@ class Main:
 
         path = "/var/lib/pacman/local/"
         count = 0
-        for f in os.listdir(path):
+        for package_file in os.listdir(path):
             count += 1
         total_count = count - 1
 
-        # get host name
+        # get manufacture name
         file = open("/sys/class/dmi/id/product_family", "r")
         manufacture = file.read().strip()
 
