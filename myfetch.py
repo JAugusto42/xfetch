@@ -52,11 +52,11 @@ class Main:
     -----------------------------
     \033[94mOS\033[0m        : {sys} {architecture}
     \033[94mKernel\033[0m    : {kernel}
+    \033[94mCPU\033[0m       : {model}
     \033[94mHost\033[0m      : {manufacture}
     \033[94mDE\033[0m        : {desktop}
     \033[94mPackages\033[0m  : {packages}
     \033[94mShell\033[0m     : {shell}
-    \033[94mCPU\033[0m       : {model}
         """.format(username=user, hostname=hostname, sys=system,
                    architecture=architecture, kernel=kernel,
                    packages=total_count, manufacture=manufacture,
