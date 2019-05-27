@@ -10,7 +10,8 @@ import os
 class Main:
     def __init__(self):
         architecture = platform.machine()
-        system = platform.uname()[1].title()
+        if platform.uname()[2][6:10] == 'arch':
+            system = 'Arch Linux'
         user = getpass.getuser()
         hostname = socket.gethostname()
         kernel = platform.uname()[2]
