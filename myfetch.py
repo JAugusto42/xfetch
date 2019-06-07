@@ -26,7 +26,7 @@ class Main:
         file = open("/sys/class/dmi/id/product_family", "r")
         manufacture = file.read().strip()
 
-        # get DE or WM i think...
+        # get DE or WM
         desktop = os.environ.get('DESKTOP_SESSION')
 
         # getting current shell
@@ -40,7 +40,7 @@ class Main:
                     if line.rstrip('\n').startswith('model name'):
                         model_name = line.rstrip('\n').split(':')[1]
                         break
-
+        
         self.show_info(
             system, user, hostname, architecture, kernel, total_count,
             manufacture, desktop, current_shell, model_name)
