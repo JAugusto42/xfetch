@@ -10,7 +10,7 @@ import os
 class Main:
     def __init__(self):
         architecture = platform.machine()
-        if platform.uname()[2][6:10] == 'arch':
+        if platform.uname()[2][7:11] == 'arch':
             system = 'Arch Linux'
         user = getpass.getuser()
         hostname = socket.gethostname()
@@ -40,7 +40,7 @@ class Main:
                     if line.rstrip('\n').startswith('model name'):
                         model_name = line.rstrip('\n').split(':')[1]
                         break
-        
+
         self.show_info(
             system, user, hostname, architecture, kernel, total_count,
             manufacture, desktop, current_shell, model_name)
