@@ -16,6 +16,7 @@ class Main:
         hostname = socket.gethostname()
         kernel = platform.uname()[2]
 
+        # get number of packages
         path = "/var/lib/pacman/local/"
         count = 0
         for package_file in os.listdir(path):
@@ -30,8 +31,7 @@ class Main:
         desktop = os.environ.get('DESKTOP_SESSION')
 
         # getting current shell
-        shell = os.environ['SHELL']
-        current_shell = shell[5:]
+        current_shell = os.environ['SHELL'][5:]
 
         # getting cpu name
         with open('/proc/cpuinfo') as file:
