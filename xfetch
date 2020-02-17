@@ -5,9 +5,15 @@ class Main
 
     @user = `whoami`
     @hostname = `hostname`
-    @sys = `uname -n`
-    @kernel = `uname -r`
+    @sys = `hostnamectl | grep 'Operating System' | gawk -F: '{print $2}'`
+    @kernel = `hostnamectl | grep 'Kernel' | gawk -F: '{print $2}'`
     @up = (`uptime -p`)
+    @machine_model = `cat /sys/devices/virtual/dmi/id/product_version`
+    @packages = `pacman -Qq | wc -l`
+    @shell = `echo $0`
+    @cpu = `lscpu | grep 'Model name' | gawk -F: '{print $2}'`
+    @mem_total = `cat /proc/meminfo | grep 'MemTotal' | awk '$3=="kB"{$2=$2/1024;$3="MB"} 1' | column -t | gawk -F: '{print $2}'`
+    @mem_free = `cat /proc/meminfo | grep 'MemFree' | awk '$3=="kB"{$2=$2/1024;$3="MB"} 1' | column -t | gawk -F: '{print $2}'`
 
     show
 
@@ -18,14 +24,14 @@ class Main
 
                   ##                   #{@user.strip}@#{@hostname.strip}
                  ####                  --------------------------
-                ######                 User:   #{@user.strip}
-               ########                OS:     #{@sys.strip}
-              ##########               Kernel: #{@kernel.strip}
-             ############              Uptime: #{@up.strip}
-            ##############
-           ################
-          ##################
-         ####################
+                ######                 Machine:  #{@machine_model.strip}
+               ########                OS:       #{@sys.strip}
+              ##########               Kernel:   #{@kernel.strip}
+             ############              Uptime:   #{@up.strip}
+            ##############             packages: #{@packages.strip}
+           ################            shell:    #{@shell.strip}
+          ##################           Cpu:      #{@cpu.strip}
+         ####################          Memory:   Free: #{@mem_free.strip} | Total: #{@mem_total.strip}
         ######################
        #########      #########
       ##########      ##########
