@@ -1,5 +1,13 @@
 # xfetch
-A simple fetch for Arch Linux only...
+A simple fetch test on Arch Linux only...
 
-# Using 
-Just clone the repo and execute with python3 or just chmod +x and execute.
+![GitHub Logo](xfetch.png)
+Format: ![Alt Text](url)
+
+## Using 
+You can clone this repo and create a syslink
+
+## Todos
+  - PKGBUILD
+
+
