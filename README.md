@@ -4,7 +4,7 @@ A simple fetch test on Arch Linux only...
 ![GitHub Logo](xfetch.png)
 
 ## Using 
-You can clone this repo and create a syslink
+You can clone this repo and create a syslink or makepkg -csi.
 
 ## Todos
   - PKGBUILD
