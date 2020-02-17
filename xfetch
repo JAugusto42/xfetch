@@ -2,18 +2,43 @@
 
 class Main
 	def initialize
+
     @user = `whoami`
-    @system = `uname -n`
+    @hostname = `hostname`
+    @sys = `uname -n`
     @kernel = `uname -r`
     @up = (`uptime -p`)
 
-     
-    puts "User: #{@user}"
-    puts "OS: #{@system}"
-    puts "Kernel: #{@kernel}"
-    puts "Uptime: #{@up}"
+    show
 
   end
+  
+  def show
+    show_information = <<-herend
+
+                  ##                   #{@user.strip}@#{@hostname.strip}
+                 ####                  --------------------------
+                ######                 User:   #{@user.strip}
+               ########                OS:     #{@sys.strip}
+              ##########               Kernel: #{@kernel.strip}
+             ############              Uptime: #{@up.strip}
+            ##############
+           ################
+          ##################
+         ####################
+        ######################
+       #########      #########
+      ##########      ##########
+     ###########      ###########
+    ##########          ##########
+   #######                  #######
+  ####                          ####
+ ###                              ###
+
+herend
+  puts show_information
+  end
+
 end
 
 Main.new
