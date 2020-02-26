@@ -4,7 +4,7 @@ class Main
 	def initialize
 
     @user = `whoami`
-    @hostname = `hostname`
+    @hostname = `hostnamectl | grep "Static hostname" | gawk -F: '{print $2}'`
     @sys = `hostnamectl | grep 'Operating System' | gawk -F: '{print $2}'`
     @kernel = `hostnamectl | grep 'Kernel' | gawk -F: '{print $2}'`
     @up = (`uptime -p`)
