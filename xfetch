@@ -1,14 +1,17 @@
 #!/usr/bin/env ruby
 
+require 'etc'
+require 'socket'
+
 class Main
 	def initialize
 
-    @user = `whoami`
-    @hostname = `hostnamectl | grep "Static hostname" | gawk -F: '{print $2}'`
+    @user = Etc.getpwuid(Process.uid).name
+    @hostname = Socket.gethostname
     @sys = `hostnamectl | grep 'Operating System' | gawk -F: '{print $2}'`
     @kernel = `hostnamectl | grep 'Kernel' | gawk -F: '{print $2}'`
     @up = (`uptime -p`)
-    @machine_model = `cat /sys/devices/virtual/dmi/id/product_version`
+    @machine_model = File.read("/sys/devices/virtual/dmi/id/product_version")
     @packages = `pacman -Qq | wc -l`
     @shell = `echo $0`
     @cpu = `lscpu | grep 'Model name' | gawk -F: '{print $2}'`
