@@ -25,24 +25,16 @@ class Main
   def show
     show_information = <<-herend
 
-                  ##                   #{@user.strip}@#{@hostname.strip}
-                 ####                  --------------------------
-                ######                 Machine:  #{@machine_model.strip}
-               ########                OS:       #{@sys.strip}
-              ##########               Kernel:   #{@kernel.strip}
-             ############              Uptime:   #{@up.strip}
-            ##############             packages: #{@packages.strip}
-           ################            shell:    #{@shell.strip}
-          ##################           Cpu:      #{@cpu.strip}
-         ####################          Memory:   Free: #{@mem_free.strip} | Total: #{@mem_total.strip}
-        ######################
-       #########      #########
-      ##########      ##########
-     ###########      ###########
-    ##########          ##########
-   #######                  #######
-  ####                          ####
- ###                              ###
+  #{@user.strip}@#{@hostname.strip}
+  --------------------------
+  Machine:  #{@machine_model.strip}
+  OS:       #{@sys.strip}
+  Kernel:   #{@kernel.strip}
+  Uptime:   #{@up.strip}
+  packages: #{@packages.strip}
+  shell:    #{@shell.strip}
+  Cpu:      #{@cpu.strip}
+  Memory:   Free: #{@mem_free.strip} | Total: #{@mem_total.strip}
 
 herend
   puts show_information
