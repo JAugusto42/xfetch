@@ -13,7 +13,7 @@ class Main
     @up = (`uptime -p`)
     @machine_model = File.read("/sys/devices/virtual/dmi/id/product_version")
     @packages = `pacman -Qq | wc -l`
-    @shell = `echo $0`
+    @shell = `echo $SHELL`
     @cpu = `lscpu | grep 'Model name' | gawk -F: '{print $2}'`
     @mem_total = `cat /proc/meminfo | grep 'MemTotal' | awk '$3=="kB"{$2=$2/1024;$3="MB"} 1' | column -t | gawk -F: '{print $2}'`
     @mem_free = `cat /proc/meminfo | grep 'MemFree' | awk '$3=="kB"{$2=$2/1024;$3="MB"} 1' | column -t | gawk -F: '{print $2}'`
